@@ -34,10 +34,8 @@ def is_installed(module):
         return apps.is_installed(module)
     except ImportError:
         return module in settings.INSTALLED_APPS
-if is_installed('django.contrib.staticfiles'):
-    from django.contrib.staticfiles.templatetags.staticfiles import static as _static
-else:
-    from django.templatetags.static import static as _static
+
+from django.templatetags.static import static as _static
 
 
 register = template.Library()
